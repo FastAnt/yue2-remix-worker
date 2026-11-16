@@ -1,0 +1,165 @@
+{
+  "host": "127.0.0.1",
+  "port": 8080,
+  "backend": "cuda",
+  "device": 0,
+  "threads": 8,
+  "lazy_load": true,
+  "idle_unload_ms": 0,
+  "max_loaded_models": 2,
+  "busy_timeout_ms": 900000,
+  "ui": false,
+  "ui_management": false,
+  "models": [
+    {
+      "id": "sheetsage2",
+      "family": "sheetsage2",
+      "path": "/models/SheetSage2-GGUF/sheetsage2-orig.gguf",
+      "task": "midi",
+      "mode": "offline",
+      "busy_timeout_ms": 900000
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-base",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf"
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-inst",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.ar_lora": "/models/Yue2-LoRA/ar_lora_inst_v3abc.safetensors",
+        "yue2.ar_lora_scale": 1.0
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-inst-nar",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.ar_lora": "/models/Yue2-LoRA/ar_lora_inst_v3abc.safetensors",
+        "yue2.ar_lora_scale": 1.0,
+        "yue2.nar_lora": "/models/Yue2-LoRA/nar_lora_joint_v4.safetensors",
+        "yue2.nar_lora_scale": 1.0
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-nar",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.nar_lora": "/models/Yue2-LoRA/nar_lora_joint_v4.safetensors",
+        "yue2.nar_lora_scale": 1.0
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-pop",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.ar_lora": "/models/Yue2-LoRA/genre/converted/pop_v2_distilled_rank8_audiocpp.safetensors",
+        "yue2.ar_lora_scale": 0.6
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-rock",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.ar_lora": "/models/Yue2-LoRA/genre/converted/indie-rock_v2_distilled_rank8_audiocpp.safetensors",
+        "yue2.ar_lora_scale": 0.65
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-country",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.ar_lora": "/models/Yue2-LoRA/genre/converted/country_v2_distilled_rank8_audiocpp.safetensors",
+        "yue2.ar_lora_scale": 0.6
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-hiphop",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.ar_lora": "/models/Yue2-LoRA/genre/converted/hiphop_v2_distilled_rank8_audiocpp.safetensors",
+        "yue2.ar_lora_scale": 0.6
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-electronic",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.ar_lora": "/models/Yue2-LoRA/genre/converted/house_v2_distilled_rank8_audiocpp.safetensors",
+        "yue2.ar_lora_scale": 0.6
+      }
+    },
+    {
+      "family": "yue2",
+      "path": "/models/Yue2-3B-GGUF/yue2-3b-bf16.gguf",
+      "task": "gen",
+      "mode": "offline",
+      "busy_timeout_ms": 900000,
+      "id": "yue2-classical",
+      "session_options": {
+        "yue2.model_gguf": "yue2-3b-bf16.gguf",
+        "yue2.vae_gguf": "yue2-vae-f32.gguf",
+        "yue2.ar_lora": "/models/Yue2-LoRA/genre/converted/tsfh_ar_195_audiocpp.safetensors",
+        "yue2.ar_lora_scale": 0.45,
+        "yue2.nar_lora": "/models/Yue2-LoRA/genre/converted/tsfh_nar_194_audiocpp.safetensors",
+        "yue2.nar_lora_scale": 0.2
+      }
+    }
+  ]
+}

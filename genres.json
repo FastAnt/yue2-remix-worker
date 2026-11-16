@@ -1,0 +1,14 @@
+{
+  "comment": "genre/lora_id -> model id. LoRA paths/scales live only in server.json; clients never control paths.",
+  "base": {"model_id": "yue2-base"},
+  "pop": {"model_id": "yue2-pop"},
+  "rock": {"model_id": "yue2-rock"},
+  "country": {"model_id": "yue2-country"},
+  "hiphop": {"model_id": "yue2-hiphop"},
+  "electronic": {"model_id": "yue2-electronic"},
+  "classical": {"model_id": "yue2-classical"},
+  "jazz": {"model_id": "yue2-base", "options": {"guidance_scale": 2.0, "semantic_temperature": 0.9}},
+  "inst": {"model_id": "yue2-inst", "cot": "full"},
+  "inst-nar": {"model_id": "yue2-inst-nar", "cot": "full"},
+  "nar": {"model_id": "yue2-nar"}
+}
