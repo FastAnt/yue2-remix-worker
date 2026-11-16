@@ -36,6 +36,7 @@ BITRATE = os.environ.get("YUE2_MP3_BITRATE", "192k")
 MAX_AUDIO_BYTES = int(os.environ.get("YUE2_MAX_AUDIO_BYTES", str(80 * 1024 * 1024)))
 MAX_MP3_BYTES = int(os.environ.get("YUE2_MAX_MP3_BYTES", str(18 * 1024 * 1024)))
 MAX_WAV_BYTES = int(os.environ.get("YUE2_MAX_WAV_BYTES", str(80 * 1024 * 1024)))
+MIN_SOURCE_SECONDS = float(os.environ.get("YUE2_MIN_SOURCE_SECONDS", "10"))
 MAX_SOURCE_SECONDS = float(os.environ.get("YUE2_MAX_SOURCE_SECONDS", "300"))
 MAX_LYRICS = 20000
 MAX_ABC = 50000
@@ -289,8 +290,8 @@ def _probe_duration(path):
 def prepare_audio(source, workdir):
     raw = _download_audio(source, workdir)
     duration = _probe_duration(raw)
-    if duration < 1:
-        raise ValueError("audio is too short.")
+    if duration < MIN_SOURCE_SECONDS:
+        raise ValueError(f"source is {duration:.1f}s; minimum is {MIN_SOURCE_SECONDS:.0f}s.")
     if duration > MAX_SOURCE_SECONDS:
         raise ValueError(f"source is {duration:.1f}s; maximum is {MAX_SOURCE_SECONDS:.0f}s.")
     wav = os.path.join(workdir, "source.wav")
